@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import http from "http";
 
-import authRoutes from "./src/routes/authRoutes.js/";
+import authRoutes from "./src/routes/authRoutes.js";
 
 dotenv.config();
 
