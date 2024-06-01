@@ -2,6 +2,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import http from "http";
+import mongoose from "mongoose";
 
 import authRoutes from "./src/routes/authRoutes.js";
 
@@ -23,6 +24,14 @@ app.get("/", (req,res) =>{
 
 app.use("/auth", authRoutes);
 
-server.listen(PORT, (req,res)=>{
-    console.log(`server is listening ${PORT}`);
-})
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(()=>{
+        server.listen(PORT, (req,res)=>{
+            console.log(`server is listening ${PORT}`);
+        })
+    })
+    .catch(err =>{
+        console.log('could not connect to server');
+        console.log(err);
+    });
