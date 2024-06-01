@@ -1,5 +1,6 @@
 import User from "../../models/users.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export const postRegister = async(req,res) =>{
     try{
@@ -13,14 +14,32 @@ export const postRegister = async(req,res) =>{
 
         const encryptedPassword = await bcrypt.hash(password , 10);
 
-        User.create({
+        const user = User.create({
             username,
             email : email.toLowerCase(),
             password : encryptedPassword
+        })
+
+        const token = jwt.sign(
+            {
+                userID : (await user)._id,
+                email : email.toLowerCase()
+            },
+            process.env.Token_KEY,
+            {
+                expiresIn : "2h"
+            }
+        )
+        return res.status(201).json({
+            userDetails : {
+                email : email.toLowerCase(),
+                username,
+                token,
+            }
         })
         
     } catch (err) {
         res.status(500).send('error registering user');
     }
-    return res.status(201).send("User has been registered");
+    return res.send("User has been registered");
 }
