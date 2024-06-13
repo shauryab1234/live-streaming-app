@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Logo } from "./Logo";
 import { AuthInput } from "./AuthInput";
-import { emailValidationMessage, passwordValidationMessage, validateEmail } from "../shared/validators";
-import { validatePassword } from "../shared/validators";
+import { emailValidationMessage, passwordValidationMessage, validateEmail, validatePassword } from "../shared/validators";
+import { useLogin } from "../shared/hooks/useLogin";
+
 export const Login = ({userClickHandler}) => {
+    const { login, isLoading } = useLogin();
+
     const [formState, setFormState] = useState({
         email : {
             value : "",
@@ -51,7 +54,13 @@ export const Login = ({userClickHandler}) => {
       }))
     }
 
-    console.log(formState);
+    const handleLogin = (event) =>{
+      event.preventDefault();
+
+      login(formState.email.value, formState.password.value);
+    }
+
+    const isButtonDisabled = isLoading || !formState.email.isValid || !formState.password.isValid ;
 
   return (
     <div className="login-container">
@@ -78,7 +87,8 @@ export const Login = ({userClickHandler}) => {
          validationMessage={passwordValidationMessage}
         />
         <button
-          disabled = {!formState.email.isValid || !formState.password.isValid}
+          onClick={handleLogin}
+          disabled = {isButtonDisabled}
         >Log in</button>
       </form>
       <span onClick={userClickHandler} className="form-switch">Not signed up? Click here</span>

@@ -22,7 +22,7 @@ app.get("/", (req,res) =>{
     return res.send("Server Online");
 });
 
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 mongoose
     .connect(process.env.MONGO_URI)
