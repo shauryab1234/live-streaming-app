@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Logo } from "./Logo";
-import { AuthInput } from "./AuthInput";
+import { Input } from "../shared/components";
 import { emailValidationMessage, passwordConfValidationMessage, passwordValidationMessage, usernameValidationMessage, validateEmail, validatePassword, validatePasswordConf, validateUsername } from "../shared/validators";
 import { useRegister } from "../shared/hooks";
 
@@ -82,7 +82,7 @@ export const Register = ({userClickHandler}) => {
     <div className="login-container">
       <Logo text = {"Register"}/>
       <form className="auth-form">
-        <AuthInput
+        <Input
          field = "email"
          label = "email" 
          value = {formState.email.value} 
@@ -92,7 +92,7 @@ export const Register = ({userClickHandler}) => {
          showErrorMessage={formState.email.showError}
          validationMessage={emailValidationMessage}
         />
-        <AuthInput 
+        <Input 
          field = "username"
          label = "username" 
          value = {formState.username.value} 
@@ -102,7 +102,7 @@ export const Register = ({userClickHandler}) => {
          showErrorMessage={formState.username.showError}
          validationMessage={usernameValidationMessage}
         />
-        <AuthInput 
+        <Input 
          field = "password"
          label = "password" 
          value = {formState.password.value} 
@@ -112,7 +112,7 @@ export const Register = ({userClickHandler}) => {
          showErrorMessage={formState.password.showError}
          validationMessage={passwordValidationMessage}
         />
-        <AuthInput 
+        <Input 
          field = "passwordConf"
          label = "confirm password" 
          value = {formState.passwordConf.value} 

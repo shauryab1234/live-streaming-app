@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Logo } from "./Logo";
-import { AuthInput } from "./AuthInput";
 import { emailValidationMessage, passwordValidationMessage, validateEmail, validatePassword } from "../shared/validators";
 import { useLogin } from "../shared/hooks/useLogin";
+import { Input } from "../shared/components";
 
 export const Login = ({userClickHandler}) => {
     const { login, isLoading } = useLogin();
@@ -66,7 +66,7 @@ export const Login = ({userClickHandler}) => {
     <div className="login-container">
       <Logo text = {"Log in"}/>
       <form className="auth-form">
-        <AuthInput
+        <Input
          field = "email"
          label = "email" 
          value = {formState.email.value} 
@@ -76,7 +76,7 @@ export const Login = ({userClickHandler}) => {
          showErrorMessage={formState.email.showError}
          validationMessage={emailValidationMessage}
         />
-        <AuthInput 
+        <Input 
          field = "password"
          label = "password" 
          value = {formState.password.value} 
