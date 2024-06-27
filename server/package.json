@@ -19,6 +19,7 @@
   "homepage": "https://github.com/KnightSS-10/live-streaming-app#readme",
   "dependencies": {
     "async": "^3.2.5",
+    "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
