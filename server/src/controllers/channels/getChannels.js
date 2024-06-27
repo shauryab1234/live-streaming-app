@@ -1,6 +1,6 @@
 import User from "../../models/users.js"
 
-export const getChannels = async (req,res) => {
+export const getChannels = async (_,res) => {
     try {
         const users = await User.find({}, {
             channel: 1,

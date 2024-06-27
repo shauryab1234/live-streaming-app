@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
-import { BrowserRouter, Route, Routes, Navigate, RouterProvider, } from "react-router-dom";
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import { DashBoard } from "./DashBoard/DashBoard";
 import { Auth } from "./Auth/Auth";
 

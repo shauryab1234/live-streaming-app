@@ -23,7 +23,7 @@ const server = http.createServer(app);
 app.get("/", (req,res) =>{
     return res.send("Server Online");
 });
-
+ 
 app.use("/api/auth", authRoutes);
 app.use("/api/channels", channelsRoutes);
 app.use("/api/settings", settingsRoutes);

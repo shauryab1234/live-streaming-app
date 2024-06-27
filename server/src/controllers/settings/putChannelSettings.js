@@ -12,8 +12,7 @@ export const putChannelSettings = async (req, res) => {
         if (userData.username !== username){
             await User.updateOne({ _id: userID}, { username });
         }
-        // console.log(userData);
-        // console.log(userID);
+        
         const channelData = await Channel.findByIdAndUpdate(userData.channel._id, {
             title,
             description,

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { passwordValidationMessage, validatePassword } from "../../../shared/validators";
 import { Input } from "../../../shared/components";
+import { useChangePassword } from "../../../shared/hooks";
 
 const inputs= [
     {
@@ -30,6 +31,9 @@ export const PasswordSettings = () => {
             value: '',
         },
     });
+
+    const { changePassword } = useChangePassword();
+
     const handleInputValueChange = (value, field) => {
         setFormState(prevState => ({
             ...prevState,
@@ -45,7 +49,9 @@ export const PasswordSettings = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
     
-        //http request
+        changePassword(formState.password.value, formState.newPassword.value
+            
+        );
     }
     
     const handleInputValidationOnBlur = (value,field) => {
