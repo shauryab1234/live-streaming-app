@@ -26,7 +26,7 @@ export const getChannels = async (_,res) => {
                 return {
                     id: user.channel._id,
                     title: user.channel.title,
-                    avatarUrl: user.channel.avatarUrl,
+                    avatarURL: user.channel.avatarURL,
                     username: user.username,
                     isOnline: liveStreams.includes(user.channel.streamKey),
                 };
