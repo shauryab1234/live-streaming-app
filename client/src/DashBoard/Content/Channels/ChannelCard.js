@@ -14,7 +14,7 @@ export const ChannelCard = ({
     title,
     id,
     username,
-    avatarUrl,
+    avatarURL,
     isOnline,
     navigateToChannelHandler,
 }) => {
@@ -25,7 +25,7 @@ export const ChannelCard = ({
 
   return (
     <div className="channels-card" onClick={handleNavigate}>
-      <ChannelAvatar url={avatarUrl}/>
+      <ChannelAvatar url={avatarURL}/>
       <span className="channels-card-text">{title}</span>
       <span className="channels-card-text">{username}</span>
       <span className="channels-card-text" style={{color : isOnline ? 'green' : 'red'}}>{isOnline? 'Online' : 'Offline'}</span>

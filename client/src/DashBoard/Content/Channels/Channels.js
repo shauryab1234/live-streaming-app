@@ -18,7 +18,7 @@ export const Channels = ({ channels }) => {
           title={c.title}
           username={c.username}
           isOnline={c.isOnline}
-          avatarUrl={c.avatarUrl}
+          avatarURL={c.avatarURL}
           navigateToChannelHandler={handleNavigateToChannel}
         />
       ))}
