@@ -5,6 +5,7 @@ import { Sidebar } from './Sidebar';
 import "./dashboardPage.css"
 import { useChannels, useUserDetails } from '../shared/hooks';
 import { LoadingSpinner } from '../shared/components';
+import { connectWithSocketServer } from '../socketConn';
 
 export const DashBoard = () => {
   const { getChannels, isFetching, allChannels, followedChannels } = useChannels();
@@ -12,6 +13,7 @@ export const DashBoard = () => {
 
   useEffect(()=> {
     getChannels(isLogged);
+    connectWithSocketServer();
   },[]);
 
   if(isFetching) {

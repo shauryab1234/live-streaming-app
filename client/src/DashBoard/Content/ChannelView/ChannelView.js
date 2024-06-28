@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Chat } from "./Chat";
+import { Chat } from "./Chat/Chat";
 import { ChannelDescription } from "./ChannelDescription";
 import { useChannelDetails } from "../../../shared/hooks";
 import { LoadingSpinner } from "../../../shared/components";
@@ -48,7 +48,7 @@ export const ChannelView = ({ getChannels }) => {
           getChannels={getChannels}
         />
       </div>
-      <Chat />
+      <Chat channelId={channelDetails.id}/>
     </div>
   );
 };
