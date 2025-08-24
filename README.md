@@ -1,3 +1,3 @@
 # Live Streaming App
 <br>
-<h4>Author : Kushagra Singh Sisodia</h4>
+<h4>Author : Shaurya Bhadoria</h4>
